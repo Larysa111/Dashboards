@@ -5,8 +5,8 @@ data = [
     ["Welches Element hat das chemische Symbol „O“?", "Gold", "Silber", "Oxid", "Sauerstoff", 3],
     ["Was ist die Hauptstadt von Italien?", "Madrid", "Rom", "Mailand", "Florenz", 1],
     ["Wie viele Kontinente gibt es?", "5", "6", "7", "8", 2],
-    ["Was ist 2 + 2?", "3", "4", "5", "6", 1],
-    ["Welche Farbe hat der Himmel?", "Grün", "Blau", "Rot", "Gelb", 1]
+    ["Was ist 9 * 9?", "72", "81", "99", "90", 1],
+    ["Welche Programmiersprache nutzt das Schlüsselwort „def“?", "Python", "Java", "Rust", "C++", 1]
 ]
 
 # Создаём CSV-файл
