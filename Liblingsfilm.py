@@ -1,8 +1,8 @@
 import streamlit as st
 TITLE = "The Borgias"
-POSTER_URL = r"C:\Users\11kuc\Schulung\Streamlit_beispiel\Bordja.jpg"
+POSTER_URL = "https://i.imgur.com/9dnJNbh.jpeg"
 YOUTUBE_INTRO = "https://youtu.be/bQZ9CHtImDM"
-EMMY_AWARD = r"C:\Users\11kuc\Schulung\Streamlit_beispiel\EmmyAward.jpg"
+EMMY_AWARD = "https://i.imgur.com/DsRXjaz.jpeg"
 
 INFO = {
     "Year": "2011",
