@@ -6,7 +6,7 @@ feedback = []
 
 with st.form("quiz_form"):
     st.markdown("**1. Welche Programmiersprache wird oft mit Data Science in Verbindung gebracht?**")
-    q1 = st.radio("Wahle eint aus:", [Java, "Python", "C++", "Go"])
+    q1 = st.radio("Wahle eint aus:", ["Java", "Python", "C++", "Go"])
 
     st.markdown("**2. Was ist dein Ergebnis von 3 * 3 + 1?**")
     q2 = st.number_input("Antwort eingeben:", min_value=0, max_value=100, step=1)
