@@ -5,13 +5,13 @@ import requests
 from datetime import datetime
 import pytz
 
-# Function to fetch earthquake data
+# функция для получения данных о землетрясениях
 @st.cache_data(ttl=120)
 def fetch_earthquake_data(url):
     response = requests.get(url)
     data = response.json()
     
-    # Parse the data
+    # анализируем данные
     features = data['features']
     earthquakes = []
     for feature in features:
@@ -30,7 +30,7 @@ def fetch_earthquake_data(url):
     
     return pd.DataFrame(earthquakes)
 
-# Fetch real-time earthquake data
+# получение данных в реальном времени
 realtime_url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
 df = fetch_earthquake_data(realtime_url)
 
