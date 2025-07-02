@@ -3,7 +3,6 @@ TITLE = "The Borgias"
 POSTER_URL = "https://i.imgur.com/9dnJNbh.jpeg"
 YOUTUBE_INTRO = "https://youtu.be/bQZ9CHtImDM"
 EMMY_AWARD = "https://i.imgur.com/DsRXjaz.jpeg"
-
 custom_css = """
 <style>
 /* Убираем элементы интерфейса Streamlit */
@@ -66,6 +65,12 @@ st.markdown(custom_css, unsafe_allow_html=True)
 with st.container():
     st.markdown('<div class="main-block">', unsafe_allow_html=True)
 
+hide_streamlit_style = """
+    <style>
+        header {Visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)        
       
 
 INFO = {
