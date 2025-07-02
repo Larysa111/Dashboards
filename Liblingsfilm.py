@@ -120,7 +120,7 @@ SUMMARY = """
 with st.container():
     col_poster, col_title = st.columns([4,3], gap = "large")
     with col_poster:
-        st.image(POSTER_URL, width=550)
+        st.image(POSTER_URL, width=450)
     with col_title:
         st.title(f"{TITLE}")
         st.caption (INFO["Year"] + " | " + INFO["Country"] + " | " + INFO["Duration"] )
