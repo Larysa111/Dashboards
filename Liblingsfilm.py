@@ -68,9 +68,21 @@ st.markdown(custom_css, unsafe_allow_html=True)
 with st.container():
     st.markdown('<div class="main-block">', unsafe_allow_html=True)
 
+
 hide_streamlit_style = """
     <style>
-        header {Visibility: hidden;}
+        header {
+        display: none !important;
+    }
+        #MainMenu {
+        visibility: hidden;
+        height: 0px; /* Убеждаемся, что не занимает места */
+        overflow: hidden; /* Предотвращаем любые артефакты, если visibility:hidden оставляет их */
+    }
+        footer {
+        visibility: hidden;
+        height: 0px; /* Убеждаемся, что не занимает места */
+    }
     </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)        
@@ -96,21 +108,17 @@ CAST_MAIN = [
 ]
 
 SUMMARY = """
-    The second half of the 15th century was a turning point in the life of Rome and Catholicism as a whole.
-    Rodrigo Borgia, first thanks to family connections, then using his cunning mind and diplomatic skills, 
-    managed to obtain the title of Pope. The man began to rule the possessions entrusted to him with an iron fist.
-    Those who were dissatisfied and openly opposed him could be subjected to persecution and painful execution,
-    and their property would go to the religious leader. Behind-the-scenes struggles were no less effective than open negotiations and business visits. 
-    The threat from the French monarchs, who wanted to obtain hereditary lands, was met with a worthy response from the hero. 
-    Numerous advantageous alliances and influential acquaintances invariably helped him turn the situation to his advantage.
-    The new Pope also became famous as a very dissolute man who loved fornication and illicit relationships.He had several sons, 
-    each of whom received enough privileges to rise in status. Cesare achieved the most impressive successes, 
-    leading the army in effective maneuvers and operations. Rodrigo's insatiability knew no bounds; even in his old age, 
-    he continued to expand his possessions, weaving intrigues and conspiracies.
+    In the “eternal” city, few people like the Borgia family — an Italian family with Spanish roots — they have many enemies, 
+        but after the death of Pope Innocent VIII, through bribery and exposés, the Holy See is taken over by Rodrigo Borgia, 
+        who takes the name Alexander VI. 
+        At this time, Rodrigo's enemy, Cardinal Giuliano della Rovere, travels through the Italian states and France, 
+        seeking allies in the fight against the Borgias. He manages to persuade the French king, Charles VIII, 
+        to depose the pope in exchange for recognition as king of Naples. The French army arrives in Rome, 
+        and the pope meets with the king.
     """
 
 with st.container():
-    col_poster, col_title = st.columns([1,2], gap = "large")
+    col_poster, col_title = st.columns([4,3], gap = "large")
     with col_poster:
         st.image(POSTER_URL, width=550)
     with col_title:
@@ -130,17 +138,21 @@ with overview_tab:
     st.subheader("Story development")  
     st.write(
         """
-        In the “eternal” city, few people like the Borgia family — an Italian family with Spanish roots — they have many enemies, 
-        but after the death of Pope Innocent VIII, through bribery and exposés, the Holy See is taken over by Rodrigo Borgia, 
-        who takes the name Alexander VI. 
-        At this time, Rodrigo's enemy, Cardinal Giuliano della Rovere, travels through the Italian states and France, 
-        seeking allies in the fight against the Borgias. He manages to persuade the French king, Charles VIII, 
-        to depose the pope in exchange for recognition as king of Naples. The French army arrives in Rome, 
-        and the pope meets with the king.
+        The second half of the 15th century was a turning point in the life of Rome and Catholicism as a whole.
+    Rodrigo Borgia, first thanks to family connections, then using his cunning mind and diplomatic skills, 
+    managed to obtain the title of Pope. The man began to rule the possessions entrusted to him with an iron fist.
+    Those who were dissatisfied and openly opposed him could be subjected to persecution and painful execution,
+    and their property would go to the religious leader. Behind-the-scenes struggles were no less effective than open negotiations and business visits. 
+    The threat from the French monarchs, who wanted to obtain hereditary lands, was met with a worthy response from the hero. 
+    Numerous advantageous alliances and influential acquaintances invariably helped him turn the situation to his advantage.
+    The new Pope also became famous as a very dissolute man who loved fornication and illicit relationships.He had several sons, 
+    each of whom received enough privileges to rise in status. Cesare achieved the most impressive successes, 
+    leading the army in effective maneuvers and operations. Rodrigo's insatiability knew no bounds; even in his old age, 
+    he continued to expand his possessions, weaving intrigues and conspiracies.
         """
     )   
     with st.expander("🏆 Nominations and Awards"):
-        col_text, col_image = st.columns([4,3])
+        col_text, col_image = st.columns([1,2])
 
         with col_text:
             st.markdown("""      
