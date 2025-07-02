@@ -3,6 +3,55 @@ TITLE = "The Borgias"
 POSTER_URL = "https://i.imgur.com/9dnJNbh.jpeg"
 YOUTUBE_INTRO = "https://youtu.be/bQZ9CHtImDM"
 EMMY_AWARD = "https://i.imgur.com/DsRXjaz.jpeg"
+custom_css = """
+<style>
+.stApp {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://victortravelblog.com/wp-content/uploads/2024/10/caspar_andriaans_van_wittel_-the_castel_sant_angelo_from_the_south-1024x770.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.stApp::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.5);  /* ← здесь регулируется "осветление" */
+    z-index: 0;
+}
+.main-block {
+    position: relative;
+    z-index: 1;  /* чтобы быть поверх осветлителя */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    color: white;
+}
+
+.main {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    color: white;
+}
+body { /* Применяем ко всему телу страницы */
+    color: #333333; /* Темно-серый */
+p { /* Применяем ко всем параграфам */
+    color: black; /* Чисто черный */
+</style>
+"""
+
+# Добавляем CSS в страницу
+st.markdown(custom_css, unsafe_allow_html=True)
+
+with st.container():
+    st.markdown('<div class="main-block">', unsafe_allow_html=True)
+
+      
 
 INFO = {
     "Year": "2011",
@@ -100,7 +149,7 @@ with st.sidebar:
         * [📚 Wikipedie-article](https://en.wikipedia.org/wiki/The_Borgias_(2011_TV_series))
         """
     )
-
+st.markdown('</div>', unsafe_allow_html=True)
     
 
 
