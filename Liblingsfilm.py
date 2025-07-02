@@ -1,10 +1,18 @@
 import streamlit as st
-TITLE = "The Borgias"
-POSTER_URL = "https://i.imgur.com/9dnJNbh.jpeg"
-YOUTUBE_INTRO = "https://youtu.be/bQZ9CHtImDM"
-EMMY_AWARD = "https://i.imgur.com/DsRXjaz.jpeg"
+
 custom_css = """
 <style>
+/* Убираем элементы интерфейса Streamlit */
+header {visibility: hidden;}
+footer {visibility: hidden;}
+#MainMenu {visibility: hidden;}
+
+/* Убираем тёмный фон, если остался */
+.css-18ni7ap.e8zbici2 {
+    background-color: transparent;
+}
+
+/* Задаём фон для всего приложения */
 .stApp {
     margin: 0;
     padding: 0;
@@ -12,7 +20,10 @@ custom_css = """
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
 }
+
+/* Полупрозрачный осветлитель поверх фона */
 .stApp::before {
     content: "";
     position: absolute;
@@ -20,28 +31,28 @@ custom_css = """
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(255,255,255,0.5);  /* ← здесь регулируется "осветление" */
+    background-color: rgba(255,255,255,0.5);
     z-index: 0;
 }
-.main-block {
+
+/* Стили для основного контента */
+.main, .main-block {
     position: relative;
-    z-index: 1;  /* чтобы быть поверх осветлителя */
+    z-index: 1;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 2rem;
     border-radius: 10px;
     color: white;
 }
 
-.main {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 2rem;
-    border-radius: 10px;
-    color: white;
+/* Общие стили текста */
+body {
+    color: #333333;
 }
-body { /* Применяем ко всему телу страницы */
-    color: #333333; /* Темно-серый */
-p { /* Применяем ко всем параграфам */
-    color: black; /* Чисто черный */
+
+p {
+    color: black;
+}
 </style>
 """
 
@@ -52,7 +63,10 @@ with st.container():
     st.markdown('<div class="main-block">', unsafe_allow_html=True)
 
       
-
+TITLE = "The Borgias"
+POSTER_URL = "https://i.imgur.com/9dnJNbh.jpeg"
+YOUTUBE_INTRO = "https://youtu.be/bQZ9CHtImDM"
+EMMY_AWARD = "https://i.imgur.com/DsRXjaz.jpeg"
 INFO = {
     "Year": "2011",
     "Country": "Ungarn, Irland, Kanada, USA",
