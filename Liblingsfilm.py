@@ -1,4 +1,8 @@
 import streamlit as st
+TITLE = "The Borgias"
+POSTER_URL = "https://i.imgur.com/9dnJNbh.jpeg"
+YOUTUBE_INTRO = "https://youtu.be/bQZ9CHtImDM"
+EMMY_AWARD = "https://i.imgur.com/DsRXjaz.jpeg"
 
 custom_css = """
 <style>
@@ -63,10 +67,7 @@ with st.container():
     st.markdown('<div class="main-block">', unsafe_allow_html=True)
 
       
-TITLE = "The Borgias"
-POSTER_URL = "https://i.imgur.com/9dnJNbh.jpeg"
-YOUTUBE_INTRO = "https://youtu.be/bQZ9CHtImDM"
-EMMY_AWARD = "https://i.imgur.com/DsRXjaz.jpeg"
+
 INFO = {
     "Year": "2011",
     "Country": "Ungarn, Irland, Kanada, USA",
