@@ -29,28 +29,38 @@ custom_css = """
     background-color: rgba(0, 0, 0, 0.5);
     padding: 2rem;
     border-radius: 10px;
-    color: white;
+    color: white; /* Текст внутри этого блока останется белым, так как фон темный */
 }
 
+/* Этот класс .main в вашем коде не используется напрямую в HTML-разметке,
+   но если бы использовался, то его текст тоже был бы белым. */
 .main {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 2rem;
     border-radius: 10px;
-    color: white;
+    color: white; /* Текст внутри этого блока останется белым */
 }
-body { /* Применяем ко всему телу страницы */
-    color: #333333; /* Темно-серый */
-p { /* Применяем ко всем параграфам */
-    color: black; /* Чисто черный */
+
+/* Исправленные и добавленные стили для общего текста */
+/* Используем универсальный селектор * или более специфичные для текста */
+* { /* Применяем ко всем элементам, если не переопределено */
+    color: #1a1a1a; /* Очень темно-серый, почти черный */
+}
+
+/* Можно также применить к конкретным элементам, если нужно */
+p {
+    color: #000000; /* Чисто черный для всех параграфов */
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #000000; /* Чисто черный для всех заголовков */
+}
+/* Если хотите, чтобы текст в сайдбаре тоже был темным,
+   можете добавить стили для элементов внутри .st-emotion-cache-1ldf03x (класс сайдбара Streamlit) */
+.st-emotion-cache-1ldf03x * { /* Это пример селектора для сайдбара, может меняться в разных версиях Streamlit */
+    color: #1a1a1a;
+}
 </style>
 """
-
-st.markdown("""
-    <div style="text-align: center; margin-top: 2rem;">
-        <img src="https://i.imgur.com/9dnJNbh.jpeg" 
-             style="width: 350px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">
-    </div>
-""", unsafe_allow_html=True)
 
 # Добавляем CSS в страницу
 st.markdown(custom_css, unsafe_allow_html=True)
@@ -58,8 +68,13 @@ st.markdown(custom_css, unsafe_allow_html=True)
 with st.container():
     st.markdown('<div class="main-block">', unsafe_allow_html=True)
 
- 
-     
+hide_streamlit_style = """
+    <style>
+        header {Visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)        
+      
 
 INFO = {
     "Year": "2011",
@@ -97,10 +112,10 @@ SUMMARY = """
 with st.container():
     col_poster, col_title = st.columns([1,2], gap = "large")
     with col_poster:
-        st.image(POSTER_URL, use_container_width = True)
+        st.image(POSTER_URL, width=550)
     with col_title:
         st.title(f"{TITLE}")
-        st.caption  (INFO["Year"] + " | " + INFO["Country"] + " | " + INFO["Duration"] )
+        st.caption (INFO["Year"] + " | " + INFO["Country"] + " | " + INFO["Duration"] )
 
         m1, m2, m3 = st.columns(3)
         m1.metric("IMDb rating", INFO ["IMDb rating"], None)
@@ -111,7 +126,7 @@ with st.container():
 
 overview_tab, cast_tab, media_tab = st.tabs(["Overview", "Main Cast", "Media"])
 
-with  overview_tab:
+with overview_tab:
     st.subheader("Story development")  
     st.write(
         """
@@ -125,10 +140,10 @@ with  overview_tab:
         """
     )   
     with st.expander("🏆 Nominations and Awards"):
-        col_text, col_image = st.columns([1,2])
+        col_text, col_image = st.columns([4,3])
 
         with col_text:
-            st.markdown("""     
+            st.markdown("""      
             The Borgias series received several awards and nominations, including an Emmy Award for Outstanding Music Composition for a Drama Series. 
             Jeremy Irons, who played the lead role, was nominated for an Emmy Award for Outstanding Lead Actor in a Drama Series for his role in The Borgias. 
             In total, the series was nominated for 10 Emmy Awards. In addition, the series won the Audience Choice Award at the 37th Montreal International Festival. 
@@ -158,7 +173,6 @@ with st.sidebar:
         """
     )
 st.markdown('</div>', unsafe_allow_html=True)
-    
 
 
 
