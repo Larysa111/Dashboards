@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
 #загрузка csv файла
 df = pd.read_csv("teams_1.csv")
@@ -43,7 +44,6 @@ selected_metric = st.selectbox(
     options=metric_options,
 )
 
-import plotly.express as px
 
 if df_filtered.empty:
     st.info("Keine Daten fur gewaelten Filter")
