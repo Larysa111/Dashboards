@@ -45,6 +45,13 @@ p { /* Применяем ко всем параграфам */
 </style>
 """
 
+st.markdown("""
+    <div style="text-align: center; margin-top: 2rem;">
+        <img src="https://i.imgur.com/9dnJNbh.jpeg" 
+             style="width: 350px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">
+    </div>
+""", unsafe_allow_html=True)
+
 # Добавляем CSS в страницу
 st.markdown(custom_css, unsafe_allow_html=True)
 
