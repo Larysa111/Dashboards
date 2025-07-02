@@ -5,17 +5,6 @@ YOUTUBE_INTRO = "https://youtu.be/bQZ9CHtImDM"
 EMMY_AWARD = "https://i.imgur.com/DsRXjaz.jpeg"
 custom_css = """
 <style>
-/* Убираем элементы интерфейса Streamlit */
-header {visibility: hidden;}
-footer {visibility: hidden;}
-#MainMenu {visibility: hidden;}
-
-/* Убираем тёмный фон, если остался */
-.css-18ni7ap.e8zbici2 {
-    background-color: transparent;
-}
-
-/* Задаём фон для всего приложения */
 .stApp {
     margin: 0;
     padding: 0;
@@ -23,10 +12,7 @@ footer {visibility: hidden;}
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    position: relative;
 }
-
-/* Полупрозрачный осветлитель поверх фона */
 .stApp::before {
     content: "";
     position: absolute;
@@ -34,28 +20,28 @@ footer {visibility: hidden;}
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,0.5);  /* ← здесь регулируется "осветление" */
     z-index: 0;
 }
-
-/* Стили для основного контента */
-.main, .main-block {
+.main-block {
     position: relative;
-    z-index: 1;
+    z-index: 1;  /* чтобы быть поверх осветлителя */
     background-color: rgba(0, 0, 0, 0.5);
     padding: 2rem;
     border-radius: 10px;
     color: white;
 }
 
-/* Общие стили текста */
-body {
-    color: #333333;
+.main {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    color: white;
 }
-
-p {
-    color: black;
-}
+body { /* Применяем ко всему телу страницы */
+    color: #333333; /* Темно-серый */
+p { /* Применяем ко всем параграфам */
+    color: black; /* Чисто черный */
 </style>
 """
 
@@ -65,13 +51,8 @@ st.markdown(custom_css, unsafe_allow_html=True)
 with st.container():
     st.markdown('<div class="main-block">', unsafe_allow_html=True)
 
-hide_streamlit_style = """
-    <style>
-        header {Visibility: hidden;}
-    </style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)        
-      
+ 
+     
 
 INFO = {
     "Year": "2011",
