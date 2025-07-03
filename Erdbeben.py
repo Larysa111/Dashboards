@@ -34,8 +34,8 @@ def fetch_earthquake_data(url):
 realtime_url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
 df = fetch_earthquake_data(realtime_url)
 
-realtime_url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
-df = fetch_earthquake_data(realtime_url)
+# realtime_url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
+# df = fetch_earthquake_data(realtime_url)
 
 
 st.title("Erdbeben Visualisierung")
@@ -70,6 +70,7 @@ fig_earth = px.scatter_map(
     lat="latitude",
     lon="longitude",
     color="magnitude",
+    color_continuous_scale="YlOrRd",
     hover_name="place",
     hover_data={"time_utc": True, "time_local": True, "magnitude": True},
     zoom=1,
@@ -82,5 +83,9 @@ st.plotly_chart(fig_earth)
 with st.expander("Daten im Zeitraum anzeigen"):
     st.dataframe(df_zeitraum)
 
+# st.subheader("Tektonische Platten")
+# st.image("https://getech.com/wp-content/uploads/2020/09/tectonic-plates-map-world.png")
+
+
 st.subheader("Tektonische Platten")
-st.image("https://getech.com/wp-content/uploads/2020/09/tectonic-plates-map-world.png")
+st.image("https://earthhow.com/wp-content/uploads/2019/01/plate_tectonics_labels-1350x798.png")
