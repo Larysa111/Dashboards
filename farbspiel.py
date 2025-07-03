@@ -128,7 +128,7 @@ elif d == 100:
         game_over = True # Игра завершена успешно
 
 # Отображение очков
-st.sidebar.header("Punkte")
+st.sidebar.header("Punktestand")
 st.sidebar.write(f"Erraten der Farben: {st.session_state.score}")
 
 # Кнопка "Показать решение"

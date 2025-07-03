@@ -18,7 +18,7 @@ def fetch_earthquake_data(url):
         properties = feature['properties']
         geometry = feature['geometry']
         utc_time = pd.to_datetime(properties['time'], unit='ms')
-        local_time = utc_time.tz_localize('UTC').tz_convert(pytz.timezone('America/Los_Angeles'))  # Convert to local timezone
+        local_time = utc_time.tz_localize('UTC').tz_convert(pytz.timezone('America/Los_Angeles'))  # конвертируем в локальную зону
         earthquakes.append({
             "place": properties['place'],
             "magnitude": properties['mag'],
