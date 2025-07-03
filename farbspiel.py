@@ -8,8 +8,8 @@ if "score" not in st.session_state:
     st.session_state["score"] = 0
 
 # Отображение очков
-st.sidebar.header("Punkte")
-st.sidebar.write(f"Erraten der Farben: {st.session_state.score}")
+# st.sidebar.header("Punkte")
+# st.sidebar.write(f"Erraten der Farben: {st.session_state.score}")
 
 def create_new_goal():
     st.session_state.goal_r = randint(0,255)
@@ -113,11 +113,11 @@ elapsed_time = time.time() - st.session_state.start_time
 remaining_time = max(0, TIME_LIMIT_SECONDS - int(elapsed_time))
 
 timer_placeholder = st.empty()
-timer_placeholder.metric("Осталось времени", f"{remaining_time} сек")
+timer_placeholder.metric("Es bleibt noch Zeit", f"{remaining_time} sек")
 
 game_over = False
 if remaining_time <= 0 and d < 100:
-    st.error("Время вышло! Попробуйте еще раз.")
+    st.error("Die Zeit ist abgelaufen! Versuchen Sie es noch einmal.")
     game_over = True
 elif d == 100:
     if not game_over: # Чтобы не увеличивать очки, если игра уже закончилась по таймеру
@@ -128,8 +128,8 @@ elif d == 100:
         game_over = True # Игра завершена успешно
 
 # Отображение очков
-st.sidebar.header("Очки")
-st.sidebar.write(f"Угадано цветов: {st.session_state.score}")
+st.sidebar.header("Punkte")
+st.sidebar.write(f"Erraten der Farben: {st.session_state.score}")
 
 # Кнопка "Показать решение"
 def Show_solution():
@@ -141,16 +141,16 @@ def Show_solution():
     update_slider_g()
     update_slider_b()
     st.session_state.hint_used = True # Отмечаем, что подсказка использована
-    st.info(f"Целевой цвет: R:{st.session_state.goal_r}, G:{st.session_state.goal_g}, B:{st.session_state.goal_b}")
+    st.info(f"Zielfarbe: R:{st.session_state.goal_r}, G:{st.session_state.goal_g}, B:{st.session_state.goal_b}")
 
 
 # Кнопка "Подсказка"
 # Делаем кнопку подсказки недоступной, если игра завершена или подсказка уже использована
-if st.button("Подсказка", on_click=Show_solution, disabled=game_over or st.session_state.hint_used):
+if st.button("Hinweis", on_click=Show_solution, disabled=game_over or st.session_state.hint_used):
     pass # Действие уже в on_click
 
 # Кнопки управления игрой
-st.button("Новая игра", on_click=create_new_goal)
+st.button("Neues Spiel", on_click=create_new_goal)
 
 # Автоматическое обновление таймера (если игра не завершена)
 if not game_over and remaining_time > 0:
