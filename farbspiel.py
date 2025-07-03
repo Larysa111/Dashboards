@@ -6,10 +6,7 @@ st.title("Farbspiel")
 
 if "score" not in st.session_state:
     st.session_state["score"] = 0
-
-# Отображение очков
-# st.sidebar.header("Punkte")
-# st.sidebar.write(f"Erraten der Farben: {st.session_state.score}")
+    
 
 def create_new_goal():
     st.session_state.goal_r = randint(0,255)
