@@ -65,8 +65,8 @@ h1, h2, h3, h4, h5, h6 {
 # Добавляем CSS в страницу
 st.markdown(custom_css, unsafe_allow_html=True)
 
-with st.container():
-    st.markdown('<div class="main-block">', unsafe_allow_html=True)
+# with st.container():
+#     st.markdown('<div class="main-block">', unsafe_allow_html=True)
 
 
 hide_streamlit_style = """

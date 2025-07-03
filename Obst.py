@@ -34,6 +34,6 @@ with col2:
         st.subheader(f"Details zu {obst.Icon}{obst.Obst}")
         st.markdown(f"""
         - **Farbe**: {obst.Farbe}  
-        - **Vitamin C**: {obst['Vitamin C (mg)']} mg  
+        - **Vitamin C**: {obst['Vitamin C (mg)']}  
         - **Typische Herkunft**: {obst.Herkunft}
         """)
