@@ -217,8 +217,16 @@ if not current_data.empty:
     )
 
     # Обновляем макет для лучшего отображения
-    fig.update_layout(xaxis_title="BMI Status", yaxis_title="Anzahl der Personen")
-    
+    fig.update_layout(
+        xaxis_title="BMI Status", 
+        yaxis_title="Anzahl der Personen",
+        yaxis=dict(
+            tickmode='linear', # Устанавливаем линейный режим для тиков
+            dtick=1,           # Шаг тиков равен 1
+            range=[0, bmi_distribution_df["Count"].max() + 0.5] # Убедимся, что диапазон начинается с 0 и немного превышает максимум
+        ),
+        showlegend=False # Убираем легенду
+    )
     st.plotly_chart(fig, use_container_width=True) # Отображаем диаграмму Plotly
 else:
     st.info("Füge Daten hinzu, um Kennzahlen zu sehen.")
