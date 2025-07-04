@@ -175,14 +175,14 @@ if not current_data.empty:
     col_h2.metric("Kleinste Größe", f"{min_height:.1f} cm", f"von {shortest_name}")
     col_h3.metric("Durchschnitt (Größe)", f"{avg_height:.1f} cm") # Изменяем, чтобы было понятно, что это средний рост
 
-    st.markdown("---") # Разделитель для ясности
+    # st.markdown("---") # Разделитель для ясности
 
     # Метрики веса
     col_w1.metric("Höchstes Gewicht", f"{max_weight:.1f} kg", f"von {heaviest_name}")
     col_w2.metric("Niedrigstes Gewicht", f"{min_weight:.1f} kg", f"von {lightest_name}")
     col_w3.metric("Durchschnitt (Gewicht)", f"{avg_weight:.1f} kg")
 
-    # st.markdown("---") # Разделитель для ясности
+    st.markdown("---") # Разделитель для ясности
 
     # Метрики BMI
     col_b1.metric("Höchster BMI", f"{max_bmi:.1f}", f"von {highest_bmi_name}")
