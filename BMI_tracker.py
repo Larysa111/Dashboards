@@ -182,19 +182,16 @@ if not current_data.empty:
     col_w2.metric("Niedrigstes Gewicht", f"{min_weight:.1f} kg", f"von {lightest_name}")
     col_w3.metric("Durchschnitt (Gewicht)", f"{avg_weight:.1f} kg")
 
-    st.markdown("---") # Разделитель для ясности
+    # st.markdown("---") # Разделитель для ясности
 
     # Метрики BMI
     col_b1.metric("Höchster BMI", f"{max_bmi:.1f}", f"von {highest_bmi_name}")
     col_b2.metric("Niedrigster BMI", f"{min_bmi:.1f}", f"von {lowest_bmi_name}")
     col_b3.metric("Durchschnitt (BMI)", f"{avg_bmi:.1f}") 
 
-    st.divider()
+    # st.divider()
     st.subheader("BMI-Verteilung")
-    # Подготовка данных для Altair
-    bmi_distribution_df = current_data["BMI Status"].value_counts().reset_index()
-    bmi_distribution_df.columns = ["BMI Status", "Count"]
-
+    
     # Подготовка данных для Plotly
     bmi_distribution_df = current_data["BMI Status"].value_counts().reset_index()
     bmi_distribution_df.columns = ["BMI Status", "Count"]
